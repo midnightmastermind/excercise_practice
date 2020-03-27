@@ -22,7 +22,7 @@ export default class ExercisesList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://exercise.jpoms.com/exercises/')
+        axios.get('http://exercise.jpoms.com:5000/exercises/')
         .then(response => {
             this.setState({ exercises: response.data });
         })
@@ -32,7 +32,7 @@ export default class ExercisesList extends Component {
     }
 
     deleteExercise(id) {
-        axios.delete('http://exercise.jpoms.com/exercises/'+id)
+        axios.delete('http://exercise.jpoms.com:5000/exercises/'+id)
         .then(res => console.log(res.data));
         this.setState({
             exercises: this.state.exercises.filter(el => el._id !== id)
